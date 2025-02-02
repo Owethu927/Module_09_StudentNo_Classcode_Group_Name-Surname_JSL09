@@ -42,7 +42,7 @@ const date = new Date()
  //SETTING UP THE WEATHER//
  navigator.geolocation.getCurrentPosition(position => {
     //Getting the user's weather//
-    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&log=${position.coords.longitude}&unites=imperial`)
+    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial`)
     .then(res => {
         if (!res.ok) {
             throw Error ("Weather data not available")
