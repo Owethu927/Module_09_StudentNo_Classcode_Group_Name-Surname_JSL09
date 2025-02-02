@@ -38,3 +38,25 @@ const date = new Date()
 
  //SETTING FOR THE TIME TO CHANGE//
  setInterval(getCurrentTime, 1000)
+
+ //SETTING UP THE WEATHER//
+ navigator.geolocation.getCurrentPosition(position => {
+    //Getting the user's weather//
+    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&log=${position.coords.longitude}&unites=imperial`)
+    .then(res => {
+        if (!res.ok) {
+            throw Error ("Weather data not available")
+        }
+        return res.json()
+    })
+    .then(data => {
+        console.log(data)
+        const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+        document.getElementById("weather").innerHTML = `
+        <img src=${iconUrl} />
+        <p>${Math.round(data.main.temp)}C</p>
+        <p>${data.name}</p>`
+        
+    })
+    .catch(err => console.error(err))
+ })
