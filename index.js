@@ -24,5 +24,10 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
     document.getElementById("crypto-top").innerHTML = `
     <img src=${data.image.small} />
     <span>${data.name}</span>`
+    //GETTING THE PRICES//
+    document.getElementById("crypto").innerHTML += `
+    <p>🎯:R${data.market_data.current_price.zar}</p>
+    <p>👆:R${data.market_data.high_24h.zar}</p>
+    <p>👇:R${data.market_data.low_24h.zar}</p>`
 })
 .catch(err => console.log(err))

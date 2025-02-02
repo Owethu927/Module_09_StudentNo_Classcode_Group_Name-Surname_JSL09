@@ -32,6 +32,7 @@ h1.time {
 div#crypto-top {
     display: flex;
     align-items: center;
+    margin-bottom: 5px;
 }
 
 div#crypto {
@@ -40,4 +41,8 @@ div#crypto {
 
 div#crypto-top > span {
     margin-left: 10px;
+}
+
+div#crypto > p {
+    margin: 0;
 }
