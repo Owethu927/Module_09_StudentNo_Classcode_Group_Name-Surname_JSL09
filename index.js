@@ -31,3 +31,10 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
     <p>👇:R${data.market_data.low_24h.zar}</p>`
 })
 .catch(err => console.log(err))
+
+//ADDING THE CURRENT TIME//
+const date = new Date()
+ document.getElementById("time").textContent = date.toLocaleTimeString("en-sast", {timeStyle: "short"})
+
+ //SETTING FOR THE TIME TO CHANGE//
+ setInterval(getCurrentTime, 1000)
